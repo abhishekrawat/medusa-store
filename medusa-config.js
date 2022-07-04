@@ -35,9 +35,9 @@ module.exports = {
     // redis_url: REDIS_URL,
     // For more production-like environment install PostgresQL
     // database_url: DATABASE_URL,
-    // database_type: "postgres",
-    database_database: "./medusa-db.sql",
-    database_type: "sqlite",
+    database_type: "postgres",
+    database_database: "postgres://postgres:Reset@4207@localhost:5432/medusa",
+    // database_type: "sqlite",
     store_cors: STORE_CORS,
     admin_cors: ADMIN_CORS,
   },

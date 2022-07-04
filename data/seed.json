@@ -1,6 +1,6 @@
 {
   "store": {
-    "currencies": ["eur", "usd"]
+    "currencies": ["inr", "usd"]
   },
   "users": [
     {
@@ -17,6 +17,15 @@
       "payment_providers": ["manual"],
       "fulfillment_providers": ["manual"],
       "countries": ["gb", "de", "dk", "se", "fr", "es", "it"]
+    },
+    {
+      "id": "test-region-in",
+      "name": "IN",
+      "currency_code": "inr",
+      "tax_rate": 0,
+      "payment_providers": ["manual"],
+      "fulfillment_providers": ["manual"],
+      "countries": ["in"]
     },
     {
       "id": "test-region-na",
