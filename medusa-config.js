@@ -11,6 +11,10 @@ const DATABASE_URL =
 // Medusa uses Redis, so this needs configuration as well
 const REDIS_URL = process.env.REDIS_URL || "redis://localhost:6379";
 
+// Amazon s3
+const S3_AK = process.env.S3_AK;
+const S3_SK = process.env.S3_SK;
+
 // Stripe keys
 const STRIPE_API_KEY = process.env.STRIPE_API_KEY || "";
 const STRIPE_WEBHOOK_SECRET = process.env.STRIPE_WEBHOOK_SECRET || "";
@@ -34,7 +38,6 @@ module.exports = {
   projectConfig: {
     redis_url: REDIS_URL,
     database_url: DATABASE_URL,
-    database_type: "postgres",
     store_cors: STORE_CORS,
     admin_cors: ADMIN_CORS,
     database_extra:
@@ -42,5 +45,17 @@ module.exports = {
         ? { ssl: { rejectUnauthorized: false } }
         : {},
   },
-  plugins,
+  plugins: [
+    {
+    resolve: `medusa-file-s3`,
+    options: {
+        s3_url: "https://medusa1.s3.us-east-1.amazonaws.com",
+        bucket: "medusa1",
+        region: "us-east-1"
+        access_key_id: S3_AK,
+        secret_access_key: S3_SK,
+    },
+  },
+
+  ],
 };
