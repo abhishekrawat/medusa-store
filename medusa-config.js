@@ -32,15 +32,15 @@ const plugins = [
 
 module.exports = {
   projectConfig: {
-    // redis_url: REDIS_URL,
-    // For more production-like environment install PostgresQL
-    // database_url: DATABASE_URL,
-    // database_type: "postgres",
-    // database_database: "postgres://rawat:Reset@4207@localhost:5432/rawat",
+    redis_url: REDIS_URL,
     database_url: DATABASE_URL,
-    atabase_type: "postgres",
+    database_type: "postgres",
     store_cors: STORE_CORS,
     admin_cors: ADMIN_CORS,
+    database_extra:
+      process.env.NODE_ENV !== "development"
+        ? { ssl: { rejectUnauthorized: false } }
+        : {},
   },
   plugins,
 };
