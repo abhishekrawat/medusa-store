@@ -6,8 +6,11 @@
   "license": "MIT",
   "scripts": {
     "seed": "medusa seed -f ./data/seed.json",
-    "build": "babel src -d dist --extensions \".ts,.js\"",
-    "start": "medusa develop"
+    "start": "medusa develop",
+    "serve": "medusa start",
+    "heroku-postbuild": "medusa migrations run",
+    "prepare": "npm run build",
+    "build": "babel src -d dist --extensions \".ts,.js\""
   },
   "dependencies": {
     "@medusajs/medusa": "^1.3.1",
